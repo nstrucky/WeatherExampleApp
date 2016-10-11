@@ -1,6 +1,7 @@
 package com.example.android.sunshine.app;
 
 
+import android.database.CursorJoiner;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -38,6 +40,10 @@ import java.util.Arrays;
  */
 public class ForecastFragment extends Fragment {
 
+    boolean selected;
+
+    String[] forecastStringArray;
+    ListView listView;
 
     public ForecastFragment() {
         // Required empty public constructor
@@ -66,6 +72,29 @@ public class ForecastFragment extends Fragment {
             FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
             fetchWeatherTask.execute("27607");
 
+            try {
+
+                forecastStringArray = fetchWeatherTask.get();
+
+            } catch (ExecutionException e) {
+                Log.v("AsynExecute", "execution exception", e);
+
+            } catch (InterruptedException e) {
+                Toast.makeText(getActivity(), "interrupted exception", Toast.LENGTH_SHORT).show();
+            }
+
+
+
+            ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(forecastStringArray));
+
+            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+                    getActivity(), R.layout.textview_frag_layout, R.id.frag_textview,
+                    stringArrayList
+            );
+
+            listView.setAdapter(stringArrayAdapter);
+
+
             return true;
         }
 
@@ -82,24 +111,10 @@ public class ForecastFragment extends Fragment {
 
 
 
-        ListView listView = (ListView) view.findViewById(R.id.my_frag_listview);
+        listView = (ListView) view.findViewById(R.id.my_frag_listview);
 
-        String[] strings = new String[]{
-                "Sunny",
-                "Cloudy",
-                "Rainy",
-                "Stormy"
 
-        };
 
-        ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(strings));
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
-                getActivity(), R.layout.textview_frag_layout, R.id.frag_textview,
-                stringArrayList
-        );
-
-        listView.setAdapter(stringArrayAdapter);
 
 
 
@@ -210,7 +225,7 @@ public class ForecastFragment extends Fragment {
             }
             return resultStrs;
 
-        }
+        }//getWeatherDateFromJson-------------------------------------------------------------------
 
 
 
@@ -310,9 +325,17 @@ public class ForecastFragment extends Fragment {
 
             }
             return null;
-        }//-----------------------------------------------------------doInBackground()
+        }//doInBackground()-------------------------------------------------------------------------
 
-    }//---------------------------------------------------------------FetchWeatherTask extends AsyncTask
+
+        @Override
+        protected void onPostExecute(String[] result) {
+
+
+
+        }
+
+    }//FetchWeatherTask extends AsyncTask-----------------------------------------------------------
 
 
 }
