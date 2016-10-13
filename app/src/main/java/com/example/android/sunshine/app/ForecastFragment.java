@@ -42,8 +42,9 @@ public class ForecastFragment extends Fragment {
 
     boolean selected;
 
-    String[] forecastStringArray;
+
     ListView listView;
+    ArrayAdapter<String> stringArrayAdapter;
 
     public ForecastFragment() {
         // Required empty public constructor
@@ -71,9 +72,8 @@ public class ForecastFragment extends Fragment {
 
             FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
             fetchWeatherTask.execute("27607");
-
+/*
             try {
-
                 forecastStringArray = fetchWeatherTask.get();
 
             } catch (ExecutionException e) {
@@ -82,17 +82,8 @@ public class ForecastFragment extends Fragment {
             } catch (InterruptedException e) {
                 Toast.makeText(getActivity(), "interrupted exception", Toast.LENGTH_SHORT).show();
             }
+*/
 
-
-
-            ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(forecastStringArray));
-
-            ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
-                    getActivity(), R.layout.textview_frag_layout, R.id.frag_textview,
-                    stringArrayList
-            );
-
-            listView.setAdapter(stringArrayAdapter);
 
 
             return true;
@@ -108,15 +99,17 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_list, container, false);
 
-
-
-
         listView = (ListView) view.findViewById(R.id.my_frag_listview);
 
+        String []forecastStringArray = new String[] {"Hit Refresh!"};
 
+        ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(forecastStringArray));
+        stringArrayAdapter = new ArrayAdapter<String>(
+                getActivity(), R.layout.textview_frag_layout, R.id.frag_textview,
+                stringArrayList
+        );
 
-
-
+        listView.setAdapter(stringArrayAdapter);
 
         return view;
     }
@@ -239,7 +232,7 @@ public class ForecastFragment extends Fragment {
             String forecastJsonStr = null;
 
             String format = "json";
-            String units = "metric";
+            String units = "imperial";
             int days = 7;
             String app_id = "614c72ff5a597ef8fb002f92eeebe6ad";
 
@@ -329,12 +322,20 @@ public class ForecastFragment extends Fragment {
 
 
         @Override
-        protected void onPostExecute(String[] result) {
+        protected void onPostExecute(String[] strings) {
+            super.onPostExecute(strings);
+
+            if (strings != null) {
+                stringArrayAdapter.clear();
+                for (String string : strings) {
+                    stringArrayAdapter.add(string);
+                }
+            }
+
 
 
 
         }
-
     }//FetchWeatherTask extends AsyncTask-----------------------------------------------------------
 
 
