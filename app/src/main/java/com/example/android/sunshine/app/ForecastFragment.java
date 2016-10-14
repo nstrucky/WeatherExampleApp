@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
 import android.util.Log;
 import android.util.StringBuilderPrinter;
@@ -16,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,6 +43,14 @@ import java.util.concurrent.ExecutionException;
  */
 public class ForecastFragment extends Fragment {
 
+
+
+
+    String zipCode;
+
+    EditText zipCodeEditText;
+
+
     boolean selected;
 
 
@@ -54,12 +65,17 @@ public class ForecastFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.forecastfragment, menu);
+
+
+
 
     }
 
@@ -71,19 +87,11 @@ public class ForecastFragment extends Fragment {
             Toast.makeText(getActivity(), "onOptionsItemSelected returns True", Toast.LENGTH_SHORT).show();
 
             FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
-            fetchWeatherTask.execute("27607");
-/*
-            try {
-                forecastStringArray = fetchWeatherTask.get();
 
-            } catch (ExecutionException e) {
-                Log.v("AsynExecute", "execution exception", e);
+            if (zipCode != null) {
+                fetchWeatherTask.execute("" + zipCode);
 
-            } catch (InterruptedException e) {
-                Toast.makeText(getActivity(), "interrupted exception", Toast.LENGTH_SHORT).show();
             }
-*/
-
 
 
             return true;
@@ -98,6 +106,29 @@ public class ForecastFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_list, container, false);
+
+        EditText zipCodeEditText = (EditText) view.findViewById(R.id.editZipCode);
+
+        zipCodeEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                zipCode = s.toString();
+
+            }
+        });
+
+
+
 
         listView = (ListView) view.findViewById(R.id.my_frag_listview);
 
@@ -322,12 +353,12 @@ public class ForecastFragment extends Fragment {
 
 
         @Override
-        protected void onPostExecute(String[] strings) {
-            super.onPostExecute(strings);
+        protected void onPostExecute(String[] result) {
+            super.onPostExecute(result);
 
-            if (strings != null) {
+            if (result != null) {
                 stringArrayAdapter.clear();
-                for (String string : strings) {
+                for (String string : result) {
                     stringArrayAdapter.add(string);
                 }
             }

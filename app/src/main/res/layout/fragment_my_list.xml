@@ -6,9 +6,30 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ListView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_frag_listview"/>
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:ems="10"
+            android:id="@+id/editZipCode" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/my_frag_listview"/>
+
+
+
+    </LinearLayout>
+
+
 
 </FrameLayout>
