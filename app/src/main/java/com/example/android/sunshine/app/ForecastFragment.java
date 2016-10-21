@@ -1,6 +1,7 @@
 package com.example.android.sunshine.app;
 
 
+import android.content.Intent;
 import android.database.CursorJoiner;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -83,8 +85,10 @@ public class ForecastFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.action_refresh) {
-
-            Toast.makeText(getActivity(), "onOptionsItemSelected returns True", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),
+                    "onOptionsItemSelected returns True",
+                    Toast.LENGTH_SHORT)
+                    .show();
 
             FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
 
@@ -92,17 +96,14 @@ public class ForecastFragment extends Fragment {
                 fetchWeatherTask.execute("" + zipCode);
 
             }
-
-
             return true;
         }
-
         return super.onOptionsItemSelected(item);
 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_list, container, false);
@@ -136,11 +137,31 @@ public class ForecastFragment extends Fragment {
 
         ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(forecastStringArray));
         stringArrayAdapter = new ArrayAdapter<String>(
-                getActivity(), R.layout.textview_frag_layout, R.id.frag_textview,
+                getActivity(),
+                R.layout.textview_frag_layout,
+                R.id.frag_textview,
                 stringArrayList
         );
 
         listView.setAdapter(stringArrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String forecast = stringArrayAdapter.getItem(position);
+
+                Intent detailActivityIntent = new Intent();
+                detailActivityIntent.setClass(getActivity(), DetailActivity.class);
+                detailActivityIntent.putExtra(Intent.EXTRA_TEXT, forecast);
+
+                startActivity(detailActivityIntent);
+
+                Toast.makeText(getActivity(),
+                        "Toast when list item is clicked.",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
 
         return view;
     }
