@@ -3,48 +3,12 @@
 
     <item
         is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_2026a637bc9dedcbeb89eaf740cdd88d9306c604.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7de7078b06447ec80d65f07e8b72bb9100622ae9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_e81ea759cfdadb93cbe627223e23dbe9d820c514.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_8751d889209078b184c6a46795bd49cae615ae72.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/opt/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_e2273500d74f5ea221c9e3db476c9091622f085c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,33 +39,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_a30bfd74f4ed18afba6e40867cc93f8c63e0838b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_f276f6938c616a54716fa8094411a0cd6dcd1714.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e27ff3fb348d627c15f15bf54215e067565abba3.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -111,12 +48,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/preference-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_bd6c5332f55f4666017f161606b574b4415d6c1f.jar" />
+        sha1="eb5d8b5c47b4e5c0184a7986a26bc12cfc51cde3">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-preference-v7-24.2.1_8443d7b277ac99253eba4166585bc609e2cdbec1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -129,21 +66,93 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_caabe398aa4f3e9e826866d5a392e437fa1fe920.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_5ab600f1defd6e6e8520d8020c0395a63cebc850.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_2026a637bc9dedcbeb89eaf740cdd88d9306c604.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7de7078b06447ec80d65f07e8b72bb9100622ae9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_e81ea759cfdadb93cbe627223e23dbe9d820c514.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/opt/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_e2273500d74f5ea221c9e3db476c9091622f085c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_a30bfd74f4ed18afba6e40867cc93f8c63e0838b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_e27ff3fb348d627c15f15bf54215e067565abba3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_f276f6938c616a54716fa8094411a0cd6dcd1714.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_bd6c5332f55f4666017f161606b574b4415d6c1f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/nstruckmeyer/dev_projects/AndroidStudioProjects/WeatherExampleApp/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_caabe398aa4f3e9e826866d5a392e437fa1fe920.jar" />
     </item>
     <item
         is-multidex="false"

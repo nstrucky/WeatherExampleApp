@@ -2,13 +2,16 @@ package com.example.android.sunshine.app;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.CursorJoiner;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+//import android.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
 import android.util.StringBuilderPrinter;
@@ -49,25 +52,39 @@ public class ForecastFragment extends Fragment {
 
 
     String zipCode;
-
-    EditText zipCodeEditText;
-
-
-    boolean selected;
-
-
-    ListView listView;
     ArrayAdapter<String> stringArrayAdapter;
+    ListView listView;
+
 
     public ForecastFragment() {
         // Required empty public constructor
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        updateWeather();
+    }
+
+    public void updateWeather() {
+
+        FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
+
+        zipCode =
+                PreferenceManager
+                        .getDefaultSharedPreferences(getActivity())
+                        .getString(getString(R.string.pref_location_key),
+                                getString(R.string.pref_location_default));
+
+        if (zipCode != null) {
+            fetchWeatherTask.execute("" + zipCode);
+
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
 
         setHasOptionsMenu(true);
     }
@@ -85,17 +102,14 @@ public class ForecastFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.action_refresh) {
+
+            updateWeather();
+
             Toast.makeText(getActivity(),
                     "onOptionsItemSelected returns True",
                     Toast.LENGTH_SHORT)
                     .show();
 
-            FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
-
-            if (zipCode != null) {
-                fetchWeatherTask.execute("" + zipCode);
-
-            }
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -108,39 +122,16 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_list, container, false);
 
-        EditText zipCodeEditText = (EditText) view.findViewById(R.id.editZipCode);
-
-        zipCodeEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                zipCode = s.toString();
-
-            }
-        });
-
-
-
 
         listView = (ListView) view.findViewById(R.id.my_frag_listview);
 
-        String []forecastStringArray = new String[] {"Hit Refresh!"};
+        String []forecastStringArray = new String[] {};
 
-        ArrayList<String> stringArrayList = new ArrayList<>(Arrays.asList(forecastStringArray));
         stringArrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 R.layout.textview_frag_layout,
                 R.id.frag_textview,
-                stringArrayList
+                new ArrayList<String>()//can be blank for now, stringArrayAdapter is populated in onPostExecute in AsyncTask
         );
 
         listView.setAdapter(stringArrayAdapter);
@@ -156,13 +147,19 @@ public class ForecastFragment extends Fragment {
 
                 startActivity(detailActivityIntent);
 
-                Toast.makeText(getActivity(),
+                Toast.makeText(
+                        getActivity(),
                         "Toast when list item is clicked.",
                         Toast.LENGTH_SHORT)
                         .show();
             }
         });
+/*
+        if (zipCode != null) {
+            fetchWeatherTask.execute("" + zipCode);
 
+        }
+*/
         return view;
     }
 

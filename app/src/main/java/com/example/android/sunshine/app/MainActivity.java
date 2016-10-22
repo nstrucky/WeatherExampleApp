@@ -1,13 +1,16 @@
 package com.example.android.sunshine.app;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +21,9 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new ForecastFragment())
                     .commit();
 
-
         }
+
+
     }
 
     @Override
@@ -37,10 +41,17 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.mainmenu_item_settings) {
 
+            Intent intent = new Intent();
+            intent.setClass(getApplicationContext(), SettingsActivity.class);
+            startActivity(intent);
 
-            Toast.makeText(getApplicationContext(), "Settings TODO", Toast.LENGTH_SHORT);
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Settings TODO",
+                    Toast.LENGTH_SHORT)
+                    .show();
             return true;
         }
 
