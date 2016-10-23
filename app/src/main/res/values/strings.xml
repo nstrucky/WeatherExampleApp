@@ -6,10 +6,29 @@
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
 
+    <string name="button_text_ok">OK</string>
+
     <string name="pref_location_key" translatable="true">location</string>
     <string name="pref_location_label" translatable="false">Location</string>
     <string name="pref_location_default" translatable="false">27612</string>
+    <string name="pref_location_summary" translatable="true">Display weather by this postal code</string>
 
+
+    <string name="pref_units_key" translatable="false">units</string>
+    <string name="pref_units_label" translatable="true">Temperature Units</string>
+    <string name="pref_units_summary" translatable="true">Choose the temperature unit type</string>
+
+
+    <string name="pref_units_default">metric</string>
+    <string-array name="pref_units_choices">
+        <item>Imperial</item>
+        <item>Metric</item>
+    </string-array>
+
+    <string-array name="pref_units_choices_values">
+        <item>imperial</item>
+        <item>metric</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
 

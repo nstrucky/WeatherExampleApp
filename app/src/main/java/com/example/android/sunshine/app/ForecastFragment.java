@@ -3,18 +3,14 @@ package com.example.android.sunshine.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.CursorJoiner;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.preference.PreferenceManager;
-import android.text.Editable;
-import android.text.TextWatcher;
 //import android.app.Fragment;
 import android.text.format.Time;
 import android.util.Log;
-import android.util.StringBuilderPrinter;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -39,8 +34,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -52,6 +45,7 @@ public class ForecastFragment extends Fragment {
 
 
     String zipCode;
+    String units;
     ArrayAdapter<String> stringArrayAdapter;
     ListView listView;
 
@@ -70,11 +64,15 @@ public class ForecastFragment extends Fragment {
 
         FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
 
-        zipCode =
-                PreferenceManager
-                        .getDefaultSharedPreferences(getActivity())
-                        .getString(getString(R.string.pref_location_key),
-                                getString(R.string.pref_location_default));
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        units = sharedPreferences
+                .getString(getString(R.string.pref_units_key),
+                        getString(R.string.pref_units_default));
+
+        zipCode = sharedPreferences
+                        .getString(getString(R.string.pref_location_key),  //get the saved preference or...
+                                getString(R.string.pref_location_default)); //get the default value
 
         if (zipCode != null) {
             fetchWeatherTask.execute("" + zipCode);
@@ -86,12 +84,13 @@ public class ForecastFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.forecastfragment, menu);
+        inflater.inflate(R.menu.fragment_forecast, menu);
 
 
 
@@ -281,7 +280,7 @@ public class ForecastFragment extends Fragment {
             String forecastJsonStr = null;
 
             String format = "json";
-            String units = "imperial";
+
             int days = 7;
             String app_id = "614c72ff5a597ef8fb002f92eeebe6ad";
 

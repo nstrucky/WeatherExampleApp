@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:id="@android:id/list"><!--this listview has to be here for the preferencefragment to inflate properly -->
+                android:id="@android:id/list"><!--this listview has to be here for the pref_general.xml to be added properly -->
 
         </ListView>
     </LinearLayout>
