@@ -64,7 +64,7 @@ public class ForecastFragment extends Fragment {
 
         FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         units = sharedPreferences
                 .getString(getString(R.string.pref_units_key),
@@ -119,7 +119,7 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_my_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
 
 
         listView = (ListView) view.findViewById(R.id.my_frag_listview);
@@ -187,7 +187,8 @@ public class ForecastFragment extends Fragment {
             long roundedHigh = Math.round(high);
             long roundedLow = Math.round(low);
 
-            String highLowStr = roundedHigh + "/" + roundedLow;
+           // String highLowStr = roundedHigh + "/" + roundedLow;
+            String highLowStr = "" + high + "/" + low;
             return highLowStr;
         }
 

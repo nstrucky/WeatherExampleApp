@@ -2,24 +2,48 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <EditTextPreference
-            android:title="@string/pref_location_label"
-            android:key="@string/pref_location_key"
-            android:summary="@string/pref_location_summary"
-            android:defaultValue="@string/pref_location_default"
-            android:inputType="text"
-            android:singleLine="true"
-            />
+
+<PreferenceCategory
+    android:title="Settings">
+
+    <ListPreference
+        android:title="@string/pref_units_label"
+        android:key="@string/pref_units_key"
+        android:summary="@string/pref_units_summary"
+        android:entries="@array/pref_units_choices"
+        android:entryValues="@array/pref_units_choices_values"
+        android:defaultValue="@string/pref_units_default"
+        android:positiveButtonText="@string/button_text_ok"
+        />
 
 
-        <ListPreference
-            android:title="@string/pref_units_label"
-            android:key="@string/pref_units_key"
-            android:summary="@string/pref_units_summary"
-            android:entries="@array/pref_units_choices"
-            android:entryValues="@array/pref_units_choices_values"
-            android:defaultValue="@string/pref_units_default"
-            android:positiveButtonText="@string/button_text_ok"
-            />
+    <EditTextPreference
+        android:title="@string/pref_location_label"
+        android:key="@string/pref_location_key"
+        android:summary="@string/pref_location_summary"
+        android:defaultValue="@string/pref_location_default"
+        android:inputType="text"
+        android:singleLine="true"
+        />
+
+
+</PreferenceCategory>
+
+
+
+        <PreferenceCategory
+            android:title="Other">
+
+
+                <Preference
+                    android:title="View on Map"
+                    android:key="@string/pref_viewonmap_key"
+                    />
+
+
+
+        </PreferenceCategory>
+
+
 
 </PreferenceScreen>
