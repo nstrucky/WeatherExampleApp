@@ -46,12 +46,6 @@ public class DetailActivity extends AppCompatActivity {
             intent.setClass(getApplicationContext(), SettingsActivity.class);
             startActivity(intent);
 
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Settings TODO",
-                    Toast.LENGTH_SHORT)
-                    .show();
-
             return true;
 
         }

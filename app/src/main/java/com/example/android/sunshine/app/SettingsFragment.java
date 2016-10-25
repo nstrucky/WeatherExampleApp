@@ -54,31 +54,8 @@ public class SettingsFragment extends PreferenceFragment {
                 Toast.makeText(getActivity(), "No apps available", Toast.LENGTH_SHORT).show();
             }
 
-        } else {
-            Toast.makeText(getActivity(), "TOAST!", Toast.LENGTH_SHORT).show();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
-        editTextPreference = (EditTextPreference) findPreference("location");
-        editTextPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-                preference.setSummary(""+newValue);
-
-                return false;
-            }
-        });
-
-
-
-        return view;
-    }
-    */
 }

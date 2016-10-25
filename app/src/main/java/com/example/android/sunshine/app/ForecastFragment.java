@@ -48,6 +48,7 @@ public class ForecastFragment extends Fragment {
     String units;
     ArrayAdapter<String> stringArrayAdapter;
     ListView listView;
+    boolean roundTemp;
 
 
     public ForecastFragment() {
@@ -65,6 +66,8 @@ public class ForecastFragment extends Fragment {
         FetchWeatherTask fetchWeatherTask = new FetchWeatherTask();
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        roundTemp = sharedPreferences.getBoolean(getString(R.string.pref_units_rounding_key), true);
 
         units = sharedPreferences
                 .getString(getString(R.string.pref_units_key),
@@ -101,14 +104,7 @@ public class ForecastFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.action_refresh) {
-
             updateWeather();
-
-            Toast.makeText(getActivity(),
-                    "onOptionsItemSelected returns True",
-                    Toast.LENGTH_SHORT)
-                    .show();
-
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -146,19 +142,8 @@ public class ForecastFragment extends Fragment {
 
                 startActivity(detailActivityIntent);
 
-                Toast.makeText(
-                        getActivity(),
-                        "Toast when list item is clicked.",
-                        Toast.LENGTH_SHORT)
-                        .show();
             }
         });
-/*
-        if (zipCode != null) {
-            fetchWeatherTask.execute("" + zipCode);
-
-        }
-*/
         return view;
     }
 
@@ -184,11 +169,19 @@ public class ForecastFragment extends Fragment {
          */
         private String formatHighLows(double high, double low) {
             // For presentation, assume the user doesn't care about tenths of a degree.
+
+            String highLowStr;
+
             long roundedHigh = Math.round(high);
             long roundedLow = Math.round(low);
 
-           // String highLowStr = roundedHigh + "/" + roundedLow;
-            String highLowStr = "" + high + "/" + low;
+            if (roundTemp) {
+                highLowStr = "" + roundedHigh + "/" + roundedLow;
+
+            } else {
+                highLowStr = "" + high + "/" + low;
+            }
+
             return highLowStr;
         }
 
@@ -268,8 +261,6 @@ public class ForecastFragment extends Fragment {
             return resultStrs;
 
         }//getWeatherDateFromJson-------------------------------------------------------------------
-
-
 
         protected String[] doInBackground(String... params) {
             // These two need to be declared outside the try/catch

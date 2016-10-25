@@ -12,6 +12,6 @@
         android:id="@+id/mainmenu_item_viewlocation"
         android:title="@string/action_viewlocation"
         android:orderInCategory="98"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
 
 </menu>

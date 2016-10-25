@@ -6,6 +6,16 @@
 <PreferenceCategory
     android:title="Settings">
 
+    <EditTextPreference
+        android:title="@string/pref_location_label"
+        android:key="@string/pref_location_key"
+        android:summary="@string/pref_location_summary"
+        android:defaultValue="@string/pref_location_default"
+        android:inputType="text"
+        android:singleLine="true"
+        />
+
+
     <ListPreference
         android:title="@string/pref_units_label"
         android:key="@string/pref_units_key"
@@ -16,14 +26,14 @@
         android:positiveButtonText="@string/button_text_ok"
         />
 
-    <EditTextPreference
-        android:title="@string/pref_location_label"
-        android:key="@string/pref_location_key"
-        android:summary="@string/pref_location_summary"
-        android:defaultValue="@string/pref_location_default"
-        android:inputType="text"
-        android:singleLine="true"
+    <SwitchPreference
+        android:defaultValue="true"
+        android:title="@string/pref_units_rounding_label"
+        android:key="@string/pref_units_rounding_key"
+        android:summary="@string/pref_units_rounding_summary"
+
         />
+
 
 </PreferenceCategory>
 

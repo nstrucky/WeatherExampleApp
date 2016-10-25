@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Sunshine</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Weather Example App</string>
+
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_viewlocation">View location</string>
 
-
     <string name="button_text_ok">OK</string>
+
+    <string name="share_action_provider_item_title">Share</string>
+
+
+
 
     <string name="pref_location_key" translatable="true">location</string>
     <string name="pref_location_label" translatable="false">Location</string>
     <string name="pref_location_default" translatable="false">27612</string>
     <string name="pref_location_summary" translatable="true">Display weather by this postal code</string>
-
-
     <string name="pref_units_key" translatable="false">units</string>
     <string name="pref_units_label" translatable="true">Temperature Units</string>
     <string name="pref_units_summary" translatable="true">Choose the temperature unit type</string>
-
     <string name="pref_viewlocation_key" translatable="false">viewlocation</string>
-
-
     <string name="pref_units_default">metric</string>
     <string-array name="pref_units_choices">
         <item>Imperial</item>
@@ -33,6 +32,37 @@
         <item>imperial</item>
         <item>metric</item>
     </string-array>
+
+    <string name="pref_units_rounding_key">prefunitsrounding</string>
+    <string name="pref_units_rounding_label">Round Temperature</string>
+    <string name="pref_units_rounding_summary">Round the temperature to the nearest whole number</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
 
