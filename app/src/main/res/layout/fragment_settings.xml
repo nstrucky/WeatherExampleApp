@@ -5,16 +5,12 @@
     tools:context="com.example.android.sunshine.app.SettingsFragment"
     >
 
-
     <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-
-
-            android:id="@android:id/list"><!--this listview has to be here for the pref_general.xml to be added properly -->
-
-    </ListView>
+        android:id="@android:id/list"
+        />
 
 
 </FrameLayout>

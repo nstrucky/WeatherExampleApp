@@ -2,6 +2,7 @@ package com.example.android.sunshine.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,17 +18,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new ForecastFragment())
                     .commit();
 
         }
-
-
     }
 
     @Override
@@ -45,21 +42,57 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.mainmenu_item_settings) {
 
-            Intent intent = new Intent();
-            intent.setClass(getApplicationContext(), SettingsActivity.class);
-            startActivity(intent);
+        switch (id) {
 
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Settings TODO",
-                    Toast.LENGTH_SHORT)
-                    .show();
-            return true;
+            case R.id.mainmenu_item_viewlocation:
+                openPreferredLocationInMap();
+                Toast.makeText(getApplicationContext(), "View on Map", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.mainmenu_item_settings:
+                startSettingsActivity();
+                Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.action_refresh:
+                Toast.makeText(getApplicationContext(), "Refresh", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                Toast.makeText(getApplicationContext(), "Default", Toast.LENGTH_SHORT).show();
+                break;
+
         }
 
         return super.onOptionsItemSelected(item);
+
+    }
+
+    private void startSettingsActivity() {
+
+        Intent intent = new Intent();
+        intent.setClass(getApplicationContext(), SettingsActivity.class);
+        startActivity(intent);
+
+    }
+
+    private void openPreferredLocationInMap() {
+
+        String zipCode = PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                .getString(getString(R.string.pref_location_key),  //get the saved preference or...
+                        getString(R.string.pref_location_default)); //get the default value
+
+        Uri uri = Uri.parse("geo:0,0?q=" + zipCode);
+        //Toast.makeText(getActivity(), "viewonmap", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+        if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "No apps available", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }

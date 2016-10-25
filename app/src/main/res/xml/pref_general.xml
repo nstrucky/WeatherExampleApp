@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -16,7 +16,6 @@
         android:positiveButtonText="@string/button_text_ok"
         />
 
-
     <EditTextPreference
         android:title="@string/pref_location_label"
         android:key="@string/pref_location_key"
@@ -26,23 +25,17 @@
         android:singleLine="true"
         />
 
-
 </PreferenceCategory>
 
-
-
-        <PreferenceCategory
+<PreferenceCategory
             android:title="Other">
 
+    <Preference
+        android:title="@string/action_viewlocation"
+        android:key="@string/pref_viewlocation_key"
+        />
 
-                <Preference
-                    android:title="View on Map"
-                    android:key="@string/pref_viewonmap_key"
-                    />
-
-
-
-        </PreferenceCategory>
+</PreferenceCategory>
 
 
 

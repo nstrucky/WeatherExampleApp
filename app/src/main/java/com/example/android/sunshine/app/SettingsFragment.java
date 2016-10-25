@@ -37,25 +37,15 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
 
-
-
-
-        if (preference.getKey().equals("viewonmap")) {
-
+        if (preference.getKey().equals("viewlocation")) {
 
             String zipCode = PreferenceManager.getDefaultSharedPreferences(getActivity())
                     .getString(getString(R.string.pref_location_key),  //get the saved preference or...
                             getString(R.string.pref_location_default)); //get the default value
 
-
             Uri uri = Uri.parse("geo:0,0?q=" + zipCode);
-
-
-
-
             //Toast.makeText(getActivity(), "viewonmap", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-
 
             if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                 startActivity(intent);
@@ -64,11 +54,9 @@ public class SettingsFragment extends PreferenceFragment {
                 Toast.makeText(getActivity(), "No apps available", Toast.LENGTH_SHORT).show();
             }
 
-
         } else {
             Toast.makeText(getActivity(), "TOAST!", Toast.LENGTH_SHORT).show();
         }
-
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 /*
