@@ -14,9 +14,9 @@
     tools:showIn="@layout/activity_settings">
 
 
-    <!--<fragment
+    <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:name="com.example.android.sunshine.app.SettingsFragment"
-        android:id="@+id/fragment_settings" />-->
+        android:id="@+id/fragment_settings" />
 </RelativeLayout>

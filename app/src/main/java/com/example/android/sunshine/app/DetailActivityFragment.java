@@ -25,12 +25,20 @@ public class DetailActivityFragment extends Fragment {
     private String forecastString;
     private String hashTagForecastString;
     public DetailActivityFragment() {
-        setHasOptionsMenu(true);
+
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true); //has to be here
+                                //if you put it in the constructor, it adds a new
+                                //ShareActionProvider every time you change orientation
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
         inflater.inflate(R.menu.fragment_detail, menu);
 
         MenuItem shareItem = menu.findItem(R.id.menu_item_action_provider);
@@ -43,6 +51,7 @@ public class DetailActivityFragment extends Fragment {
         } else {
             Toast.makeText(getActivity(), "Share Action Provider is Null", Toast.LENGTH_SHORT).show();
         }
+
 
 
     }
