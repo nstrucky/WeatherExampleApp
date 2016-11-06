@@ -16,7 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
         getFragmentManager()
                 .beginTransaction()
                 .add(R.id.content_settings, new SettingsFragment()) //the layout id specified tells us where to add the fragment
-                .commit();                                      //HAHAHAHAHA so if you use the activity as the container, screws up your layout. Either do it programatically here
+                .commit();                                      //HAHAHAHAHA so if you use the activity as the container (first argument of add()), screws up your layout. Either do it programatically here
                                                                 //using the content layout as the container, or just insert a fragment into the content layout itself.
 */                                                              //either way, you need to "include" the content_settings layout in the activity_settings layout.
 
