@@ -24,6 +24,19 @@ public class WeatherContract {
     public static final class LocationEntry implements BaseColumns {
         public static final String TABLE_NAME = "location";
 
+        //the location setting string is what will be sent to openweathermap
+        //as the location query
+        public static final String COLUMN_LOCATION_SETTING = "location_setting";
+
+        //In order to uniquely pinpoint the location on the map when we build the
+        //map intent, we store the longitude and latitude returned by openweathermap
+        public static final String COLUMN_COORD_LONG = "coord_long";
+        public static final String COLUMN_COORD_LAT = "coord_lat";
+
+        //Human readable location string, provided by the API.
+        //Because "Mountain View" is more recognizable than 94043
+        public static final String COLUMN_CITY_NAME = "city_name";
+
     }
 
     /* Inner class that defines the table contents of the weather table */
